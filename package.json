@@ -55,13 +55,14 @@
     "bedrock-session-mongodb": "^2.0.2",
     "bedrock-validation": "^2.2.0",
     "bedrock-views": "^5.3.0",
+    "bedrock-web": "^1.0.0",
     "bedrock-webpack": "^1.1.0",
     "bedrock-website-user-http": "^1.0.0",
     "bootstrap": "^3.3.7",
     "cors": "^2.8.1",
     "credentials-polyfill": "^1.1.5",
     "did-io": "digitalbazaar/did-io#jsonld-1.1",
-    "did-veres-one": "veres-one/did-veres-one#master",
+    "did-veres-one": "veres-one/did-veres-one#update-terminology",
     "equihash-signature": "digitalbazaar/equihash-signature#master",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
@@ -73,8 +74,8 @@
     "node-forge": "^0.7.2",
     "request": "^2.79.0",
     "uuid": "^3.0.1",
-    "veres-one-context": "digitalbazaar/veres-one-context#master",
-    "veres-one-validator": "digitalbazaar/veres-one-validator#master"
+    "veres-one-context": "digitalbazaar/veres-one-context#update-terminology",
+    "veres-one-validator": "digitalbazaar/veres-one-validator#update-terminology"
   },
   "bedrock": {
     "browserDependencies": [
@@ -82,6 +83,7 @@
       "bedrock-angular-footer",
       "bedrock-angular-header",
       "bedrock-angular-material",
+      "bedrock-web",
       "jquery",
       "lodash",
       "ng-error",

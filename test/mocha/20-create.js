@@ -3,19 +3,16 @@
  */
 'use strict';
 
-const _ = require('lodash');
 const async = require('async');
 const bedrock = require('bedrock');
 const config = bedrock.config;
 const equihashSigs = require('equihash-signature');
 const fs = require('fs');
-const helpers = require('./helpers');
 const jsigs = require('jsonld-signatures');
 const mockData = require('./mock.data');
 let request = require('request');
 request = request.defaults({json: true, strictSSL: false});
 const url = require('url');
-const uuid = require('uuid/v4');
 const vrLedger = require('../../lib/ledger');
 
 const urlObj = {
@@ -39,13 +36,11 @@ describe('DID creation', () => {
       sign: callback => jsigs.sign(unsignedOp, {
         algorithm: 'RsaSignature2018',
         privateKeyPem: mockData.didDocuments.alpha.privateDidDocument
-          .invokeCapability[0].publicKey.privateKeyPem,
-        creator: didDocument.invokeCapability[0].publicKey.id,
+          .capabilityInvocation[0].publicKey.privateKeyPem,
+        creator: didDocument.capabilityInvocation[0].publicKey.id,
         proof: {
           '@context': config.constants.WEB_LEDGER_CONTEXT_V1_URL,
-          // FIXME: ensure `invokeCapability` is in web ledger context
-          //   or switch to veres-one context here
-          proofPurpose: 'invokeCapability'
+          proofPurpose: 'capabilityInvocation'
         }
       }, callback),
       proof: ['sign', (results, callback) => jsigs.sign(
@@ -88,8 +83,8 @@ describe('DID creation', () => {
       sign: callback => jsigs.sign(unsignedOp, {
         algorithm: 'RsaSignature2018',
         privateKeyPem: mockData.didDocuments.alpha.privateDidDocument
-          .invokeCapability[0].publicKey.privateKeyPem,
-        creator: didDocument.invokeCapability[0].publicKey.id
+          .capabilityInvocation[0].publicKey.privateKeyPem,
+        creator: didDocument.capabilityInvocation[0].publicKey.id
       }, callback),
       proof: ['sign', (results, callback) => jsigs.sign(
         results.sign, {
