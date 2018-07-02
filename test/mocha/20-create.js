@@ -141,8 +141,8 @@ describe('DID creation', () => {
         });
       }],
       getDidDescription: ['register', (results, callback) => {
-        vrLedger.agent.node.stateMachine.get(
-          validDidDescription.id, (err, result) => {
+        vrLedger.agent.node.records.get(
+          {recordId: validDidDescription.id}, (err, result) => {
             should.not.exist(err);
             should.exist(result.object);
             result.object.id.should.equal(validDidDescription.id);
@@ -182,8 +182,8 @@ describe('DID creation', () => {
         });
       }],
       getDidDescription: ['register', (results, callback) => {
-        vrLedger.agent.node.stateMachine.get(
-          validDidDescription.id, (err, result) => {
+        vrLedger.agent.node.records.get(
+          {recordId: validDidDescription.id}, (err, result) => {
             should.not.exist(err);
             should.exist(result.object);
             result.object.id.should.equal(validDidDescription.id);
