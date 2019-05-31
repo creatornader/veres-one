@@ -1,0 +1,23 @@
+version: '3'
+services:
+  myapp:
+    container_name: myapp
+    restart: always
+    build: ./version-tracker
+    ports:
+      - '4300:4300'
+      - '4301:4301'
+    links:
+      - redis
+      - mongo
+    extra_hosts:
+      - genesis.veres.one.localhost:127.0.0.1
+      - peer-1.veres.one.localhost:127.0.0.1
+      - peer-2.veres.one.localhost:127.0.0.1
+      - peer-3.veres.one.localhost:127.0.0.1
+  mongo:
+    container_name: myapp-mongo
+    image: 'mongo:4'
+  redis:
+    container_name: myapp-redis
+    image: 'redis:4.0.11'
