@@ -11,3 +11,4 @@ config.mongodb.name = 'veres_one';
 config.mongodb.username = 'veres';
 config.mongodb.password = 'password';
 config.mongodb.adminPrompt = true;
+config.mongodb.port = 27016;
